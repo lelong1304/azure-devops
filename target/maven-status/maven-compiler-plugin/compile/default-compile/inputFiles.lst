@@ -1,0 +1,16 @@
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/domain/service/TauxChangeService.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/data/mapper/TauxChangeMapper.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/data/repository/TauxChangeRepository.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/domain/model/TauxChangeModel.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/domain/model/CurrencyModel.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/web/controller/CurrencyController.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/web/mapper/TauxChangeDtoMapper.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/data/entity/CurrencyEntity.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/web/controller/ChangeController.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/domain/service/CurrencyService.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/MsaApplication.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/web/dto/TauxChangeResponseDto.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/data/mapper/CurrencyMapper.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/web/config/SwaggerConfig.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/data/repository/CurrencyRepository.java
+/Users/long/Downloads/ExchangeRate/src/main/java/fr/dauphine/miageif/msa/data/entity/TauxChangeEntity.java

@@ -1,0 +1,125 @@
+apiVersion: v1
+items:
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert --out test.yml
+        kompose.version: 1.24.0 (4a2a0458)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: exchange-rate-service
+      name: exchange-rate-service
+    spec:
+      ports:
+        - name: "52002"
+          port: 52002
+          targetPort: 52002
+      selector:
+        io.kompose.service: exchange-rate-service
+    status:
+      loadBalancer: {}
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert --out test.yml
+        kompose.version: 1.24.0 (4a2a0458)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: transaction-service
+      name: transaction-service
+    spec:
+      ports:
+        - name: "52003"
+          port: 52003
+          targetPort: 52003
+      selector:
+        io.kompose.service: transaction-service
+    status:
+      loadBalancer: {}
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert --out test.yml
+        kompose.version: 1.24.0 (4a2a0458)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: exchange-rate-service
+      name: exchange-rate-service
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: exchange-rate-service
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert --out test.yml
+            kompose.version: 1.24.0 (4a2a0458)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/default: "true"
+            io.kompose.service: exchange-rate-service
+        spec:
+          containers:
+            - image: exchange-rate-service
+              name: exchange-rate-service
+              ports:
+                - containerPort: 52002
+              resources: {}
+          restartPolicy: Always
+    status: {}
+  - apiVersion: networking.k8s.io/v1
+    kind: NetworkPolicy
+    metadata:
+      creationTimestamp: null
+      name: default
+    spec:
+      ingress:
+        - from:
+            - podSelector:
+                matchLabels:
+                  io.kompose.network/default: "true"
+      podSelector:
+        matchLabels:
+          io.kompose.network/default: "true"
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert --out test.yml
+        kompose.version: 1.24.0 (4a2a0458)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: transaction-service
+      name: transaction-service
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          io.kompose.service: transaction-service
+      strategy: {}
+      template:
+        metadata:
+          annotations:
+            kompose.cmd: kompose convert --out test.yml
+            kompose.version: 1.24.0 (4a2a0458)
+          creationTimestamp: null
+          labels:
+            io.kompose.network/default: "true"
+            io.kompose.service: transaction-service
+        spec:
+          containers:
+            - image: dothuhang/exchange-transaction-api
+              name: transaction-service
+              ports:
+                - containerPort: 52003
+              resources: {}
+          restartPolicy: Always
+    status: {}
+kind: List
+metadata: {}
+

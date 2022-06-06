@@ -1,0 +1,42 @@
+server:
+  port: 52002
+  servlet:
+    context-path: /
+swagger:
+  enable: true
+  title: Long SoftWare Microservice
+  description: microservice
+  version: 0.0.1
+  contactName: LELong
+  contactEmail: lelong1304@gmail.com
+http:
+  cors:
+    allow:
+      credentials: true
+      headers: app Origin, Content-Type, Accept, Authorization, Access-Control-Request-Headers
+      methods: GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH
+      origin: http://localhost:4200
+    max:
+      age: 3600
+    expose:
+      headers:
+spring:
+  application:
+    name: exchange-rate-api
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate.default_schema: public
+      hibernate.format_sql: true
+      hibernate.jdbc.time_zone: UTC
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ec2-54-73-68-39.eu-west-1.compute.amazonaws.com:5432/d3aktqld70q1mf?ApplicationName=exchange-rate-api-local
+    username: kszrldlbxymkqa
+    password: c76ed69b43a291a8f38ff0c21a1dc2184fe451746e5d398d6d2e2bb83f14fb22
